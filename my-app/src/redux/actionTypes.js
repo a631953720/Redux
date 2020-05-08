@@ -1,0 +1,6 @@
+export const ADD_DEVICE = 'ADD_DEVICE'
+export const DELETE_DEVICE = 'DELETE_DEVICE'
+export const INITIAL_DEVICE = 'INITIAL_DEVICE'
+export const SET_DEVICE_PROPS = 'SET_DEVICE_PROPS'
+export const CHANGE_POWER = 'CHANGE_POWER'
+export const COMMAMD = 'COMMAND'

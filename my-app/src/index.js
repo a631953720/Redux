@@ -4,10 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import {deviceApp,AppContainer} from './App';
+import store from './redux/store';
 ReactDOM.render(
-  <Provider store={createStore(deviceApp)}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
