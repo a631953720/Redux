@@ -29,7 +29,7 @@ class Header extends React.Component{
         {({ store }) => {
           console.log('Header in Consumer',store.getState())
           return (
-            <header>Header</header>
+            <header>Header123</header>
           );
         }}
       </ReactReduxContext.Consumer>
