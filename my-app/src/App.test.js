@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
-import {device,userControl} from './App'
+import {device} from './redux/reducers/device'
+import {userControl} from './redux/reducers/userControl';
 
 // test('renders learn react link', () => {
 //   const { getByText } = render(<App />);
