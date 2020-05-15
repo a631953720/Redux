@@ -60,7 +60,7 @@ test('initial_device',()=>{
     }
   }]
   expect(device(beforeState,{
-    type:'INITIAL_DEVICE',
+    type:'SET_DEVICE_INFO',
     id:1,
     power:true,
     info:{
@@ -92,7 +92,7 @@ test('set_device_props',()=>{
     }
   }]
   expect(userControl(beforeState,{
-      type:'SET_DEVICE_PROPS',
+      type:'SET_DEVICE_INFO_PROPS',
       id:0,
       info:{
         manufacturer:'hihichange',

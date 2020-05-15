@@ -1,4 +1,4 @@
-import { ADD_DEVICE, DELETE_DEVICE, INITIAL_DEVICE } from '../actionTypes';
+import { ADD_DEVICE, DELETE_DEVICE, SET_DEVICE_INFO } from '../actionTypes';
 export const device = (state = [], action) => {
     switch (action.type) {
         case ADD_DEVICE:
@@ -9,7 +9,7 @@ export const device = (state = [], action) => {
             }];
         case DELETE_DEVICE:
             return deleteDevice(state, action.id);
-        case INITIAL_DEVICE:
+        case SET_DEVICE_INFO:
             return initialDevice(state, action.id, action.info);
         default:
             return state;
@@ -17,19 +17,19 @@ export const device = (state = [], action) => {
 }
 
 const deleteDevice = (state, id) => {
-    let tmp = state
-    return tmp.filter(subState => subState.id !== id)
+    let tmp = state.slice();
+    return tmp.filter(state => state.id !== id);
 }
 const initialDevice = (state, id, info) => {
-    let tmp = state.slice()
+    let tmp = state.slice();
     return tmp.map(state => {
         if (state.id === id) {
             return {
                 ...state,
                 info: info
-            }
+            };
         } else {
-            return state
+            return state;
         }
     })
 }

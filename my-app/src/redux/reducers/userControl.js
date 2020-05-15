@@ -1,8 +1,8 @@
-import { SET_DEVICE_PROPS, CHANGE_POWER, COMMAMD } from '../actionTypes';
+import { SET_DEVICE_INFO_PROPS, CHANGE_POWER, COMMAMD } from '../actionTypes';
 
 export const userControl = (state = [], action) => {
     switch (action.type) {
-        case SET_DEVICE_PROPS:
+        case SET_DEVICE_INFO_PROPS:
             return setDeviceProps(state, action.id, action.info)
         case CHANGE_POWER:
             return changeDevicePower(state, action.id, action.power)

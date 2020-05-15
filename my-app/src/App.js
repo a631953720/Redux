@@ -36,7 +36,10 @@ class Footer extends React.Component {
   }
   render() { 
     return (
-      <footer>Footer</footer>
+      <footer>
+        <hr></hr>
+        Footer
+      </footer>
     );
   }
 }
