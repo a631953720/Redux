@@ -21,14 +21,14 @@ const Test=(info)=>{
 }
 class List extends React.Component{
     constructor(props) {
-        super(props);
+        super(props); 
     }
     handleDeleteBtn=(e)=>{
-        const id = Number(e.target.id);
+        const id = Number(e.target.name);
         console.log(this.props.deleteDevice(id))
     }
     handleSetDevice=(e)=>{
-        const id = Number(e.target.id);
+        const id = Number(e.target.name);
         console.log(this.props.initialDeviceList(id,{'出廠年份':'2020','出廠日期':'9/1'}))
     }
     render(){
@@ -42,8 +42,8 @@ class List extends React.Component{
                         <p>Name: {device.deviceName}</p>
                         <p>Power: {device.power?'on':'off'}</p>
                         {device.info ? Test(device.info) : ''}
-                        <button id={device.id} onClick={this.handleSetDevice}>初始化</button>
-                        <button id={device.id} onClick={this.handleDeleteBtn}>刪除</button>
+                        <button name={device.id} onClick={this.handleSetDevice}>初始化</button>
+                        <button name={device.id} onClick={this.handleDeleteBtn}>刪除</button>
                     </div>
                 ))}
             </div>
