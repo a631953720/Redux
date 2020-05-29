@@ -2,7 +2,7 @@
 問題紀錄
 
 <h3>目的:</h3>
-想做一個切換開關的按鈕，將Actions跟Compoment用Connect組合在一起，已經確認Actions會成功回傳action物件。嘗試過直接使用dispatch呼叫無法成功修改，有趣的是測試程式是pass的，在測試程式內，boolean有成功修改，但在組件內的boolean卻無法修改，目前找不到原因。
+想做一個切換開關的按鈕，將Actions跟Compoment用Connect組合在一起，已經確認Actions會成功回傳action物件。嘗試過直接使用dispatch呼叫無法成功修改，有趣的是測試程式是pass的，在測試程式內，boolean有成功修改，但在組件內的boolean卻無法修改，原因待釐清。確認過官方issue，沒有相關的問題回報，估計程式本身出問題的機率較高，可能嘗試額外重寫並測試問題是否仍然存在。
 
 <h3>思路: </h3>
 Actions會接收id、power的參數生成一個action物件，透過userContral的Reducer去做行為指派，type為「CHANGE_POWER」時，會指派changeDevicePower去做處理。
