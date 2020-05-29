@@ -1,1 +1,5 @@
 // export const TYPE_NAME = 'TYPE_NAME'
+export const ADD_DEVICE = 'ADD_DEVICE'
+export const SET_NAME = 'SET_NAME'
+export const SET_INFO = 'SET_INFO'
+export const FETCH_DATA = 'FETCH_DATA'
