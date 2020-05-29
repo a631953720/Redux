@@ -15,5 +15,7 @@ Actions會接收id、power的參數生成一個action物件，透過userContral�
 changeDevicePower的power為boolean值，說明了只會有兩種狀態，因此多接收一個power參數似乎有些多餘。假設Device.power為true，在產生action物件時如果將power的參數設為true，原先power.power就為true卻會被指派為true。這樣的行為會令人困惑，之後重寫會更改這裡的處理方式。
 
 <h3>執行結果</h3>
-![GitHub Logo]([GitHub]https://github.com/a631953720/Redux/blob/remake/03.png)
-Format: ![Alt Text]([GitHub]https://github.com/a631953720/Redux/blob/remake/03.png)
+呈現方式如同03.png<br>
+執行結果如同04.png<br>
+changePower的功能並未成功
+
