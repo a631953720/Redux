@@ -25,7 +25,7 @@ class Header extends React.Component{
   }
   render() { 
     return(
-      <header>Header123</header>
+      <header>Header</header>
     )
   }
 }

@@ -25,21 +25,21 @@ const setDeviceProps = (state, id, info) => {
         }
     })
 }
-const changeDevicePower = (state, id, power) => {
+const changeDevicePower = (state, id, power=undefined) => {
     let tmp = state.slice();
-    return tmp.map(state => {
-        if (state.id === id && power !== undefined) {
+    return tmp.map(_state => {
+        if (_state.id === id && power !== undefined) {
             return {
-                ...state,
+                ..._state,
                 power: power
             }
-        } else if(state.id === id && power === undefined){
+        } else if(_state.id === id && power === undefined){
             return {
-                ...state,
-                power: !state.power
+                ..._state,
+                power: !_state.power
             }
         } else {
-            return state
+            return _state
         }
     })
 }

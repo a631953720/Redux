@@ -16,7 +16,7 @@ const SubBody =({
                 placeholder="裝置名稱"
                 ref={node => { input = node; }}
             />
-            <button onClick={() => { addDevice(id++, input.value, true); input.value = '';}}>+++</button>
+            <button onClick={() => { addDevice(id++, input.value,true); input.value = '';}}>+++</button>
             {id}
             <DeviceList deviceList={deviceList}/>
         </div>

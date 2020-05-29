@@ -123,7 +123,6 @@ test('change_device_power',()=>{
   expect(userControl(beforeState,{
     type:'CHANGE_POWER',
     id:1,
-    power:undefined
   })).toEqual(afterState)
 })
 test('command',()=>{
