@@ -19,3 +19,6 @@ changeDevicePower的power為boolean值，說明了只會有兩種狀態，因此
 執行結果如同04.png<br>
 changePower的功能並未成功
 
+
+<h3>新增樣板</h3>
+開啟其中一個分支作為樣板儲存，以隨時套用此資料夾的結構
