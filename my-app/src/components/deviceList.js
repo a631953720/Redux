@@ -1,6 +1,7 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import { connect } from "react-redux";
-import {deleteDevice,initialDeviceList} from '../redux/actions';
+import {deleteDevice,initialDeviceList,changePower} from '../redux/actions';
 const Test=(info)=>{
     let id=0;
     let newArr = Object.keys(info).reduce(
@@ -30,6 +31,12 @@ class List extends React.Component{
     handleSetDevice=(e)=>{
         const id = Number(e.target.name);
         console.log(this.props.initialDeviceList(id,{'出廠年份':'2020','出廠日期':'9/1'}))
+        console.log(this.props.dispatch({type:"CHANGE_POWER",id:Number(0),power:undefined}))
+    }
+    handleChangePower=(e)=>{
+        const id = Number(e.target.name);
+        console.log(this.props.changePower(id));
+        this.forceUpdate();
     }
     render(){
         let {deviceList}=this.props
@@ -42,6 +49,7 @@ class List extends React.Component{
                         <p>Name: {device.deviceName}</p>
                         <p>Power: {device.power?'on':'off'}</p>
                         {device.info ? Test(device.info) : ''}
+                        <button name={device.id} onClick={this.handleChangePower}>切換開關</button>
                         <button name={device.id} onClick={this.handleSetDevice}>初始化</button>
                         <button name={device.id} onClick={this.handleDeleteBtn}>刪除</button>
                     </div>
@@ -50,7 +58,18 @@ class List extends React.Component{
         )
     }
 }
+function mapDispatchToProps(dispatch){
+    return {
+        dispatch,
+        ...bindActionCreators({deleteDevice,initialDeviceList,changePower},dispatch)
+    }
+}
+
 export const DeviceList = connect(
     null,
-    {deleteDevice,initialDeviceList}
+    mapDispatchToProps
 )(List)
+// export const DeviceList = connect(
+//     null,
+//     {deleteDevice,initialDeviceList,changePower}
+// )(List)

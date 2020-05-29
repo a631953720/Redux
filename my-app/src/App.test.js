@@ -106,26 +106,24 @@ test('change_device_power',()=>{
     id:0,
     deviceName:'test',
     power:false,
-    info:{
-      manufacturer:'innodisk',
-      productionDate:'2020/5/8',
-      productionCode:'ff04852xs'
-    }
+  },{
+    id:1,
+    deviceName:'test',
+    power:false,
   }]
   const afterState=[{
     id:0,
     deviceName:'test',
+    power:false,
+  },{
+    id:1,
+    deviceName:'test',
     power:true,
-    info:{
-      manufacturer:'innodisk',
-      productionDate:'2020/5/8',
-      productionCode:'ff04852xs'
-    }
   }]
   expect(userControl(beforeState,{
     type:'CHANGE_POWER',
-    id:0,
-    power:true
+    id:1,
+    power:undefined
   })).toEqual(afterState)
 })
 test('command',()=>{
