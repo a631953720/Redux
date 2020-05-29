@@ -1,25 +1,13 @@
-import {ADD_DEVICE,DELETE_DEVICE,SET_DEVICE_INFO,CHANGE_POWER} from './actionTypes';
+// import {TYPE_NAME} from './actionTypes';
+import {CHANGE_POWER,ADD_DEVICE} from './actionTypes';
 
-export const addDevice =  (id, name, power) => ({
-    type: ADD_DEVICE,
-    // payload:{
-    id,
-    deviceName: name,
-    power
-    // }
-})
-export const deleteDevice =(id)=>({
-    type: DELETE_DEVICE,
+// export const actions = (props) => action obj
+export const changePower = (id) => ({
+    type:CHANGE_POWER,
     id
 })
-export const initialDeviceList = (id, info) =>({
-    type: SET_DEVICE_INFO,
+export const addDevice = (id,power) => ({
+    type:ADD_DEVICE,
     id,
-    info
-})
-
-export const changePower = (id,power) =>({
-    type: CHANGE_POWER,
-    id:id,
-    power:power
+    power
 })

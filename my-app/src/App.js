@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { ReactReduxContext, connect } from "react-redux";
 import { Body } from './components/body'
 class App extends React.Component {
   constructor(props){
@@ -17,7 +16,7 @@ class App extends React.Component {
     );
   }
 }
-//或許之後都改用function
+//或許之後改用function
 class Header extends React.Component{
   constructor(props) {
     super(props);

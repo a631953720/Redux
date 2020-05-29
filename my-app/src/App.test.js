@@ -1,155 +1,36 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
-import {device} from './redux/reducers/device'
-import {userControl} from './redux/reducers/userControl';
+import { device } from './redux/reducers/device'
 
 // test('renders learn react link', () => {
 //   const { getByText } = render(<App />);
 //   const linkElement = getByText(/learn react/i);
 //   expect(linkElement).toBeInTheDocument();
 // });
-test('add_device',()=>{
-  const beforeState=[]
-  const afterState=[{
-    id:0,
-    deviceName:'test',
-    power:true
+test('change power', () => {
+  const before = [{
+    id: 0,
+    power: true
   }]
-  expect(device(beforeState,{
-    type:'ADD_DEVICE',
-    id:0,
-    deviceName:'test',
-    power:true
-  })).toEqual(afterState)
+  const after = [{
+    id: 0,
+    power: false
+  }]
+  expect(device(before, {
+    type: 'CHANGE_POWER',
+    id:0
+  })).toEqual(after);
 })
-test('delete_device',()=>{
-  const beforeState=[{
-    id:1,
-    deviceName:'test',
+test('add device',()=>{
+  const before = []
+  const after = [{
+    id: 0,
+    power: true
+  }]
+  expect(device(before, {
+    type: 'ADD_DEVICE',
+    id:0,
     power:true
-  }]
-  const afterState=[]
-  expect(device(beforeState,{
-    type:'DELETE_DEVICE',
-    id:1,
-  })).toEqual(afterState)
-})
-test('initial_device',()=>{
-  const beforeState =[{
-    id:0,
-    deviceName:'test0',
-    power:true
-  },{
-    id:1,
-    deviceName:'test1',
-    power:true
-  }]
-  const afterState=[{
-    id:0,
-    deviceName:'test0',
-    power:true
-  },{
-    id:1,
-    deviceName:'test1',
-    power:true,
-    info:{
-      manufacturer:'innodisk',
-      productionDate:'2020/5/8',
-      productionCode:'ff04852xs'
-    }
-  }]
-  expect(device(beforeState,{
-    type:'SET_DEVICE_INFO',
-    id:1,
-    power:true,
-    info:{
-      manufacturer:'innodisk',
-      productionDate:'2020/5/8',
-      productionCode:'ff04852xs'
-    }
-  })).toEqual(afterState)
-})
-test('set_device_props',()=>{
-  const beforeState=[{
-    id:0,
-    deviceName:'test',
-    power:true,
-    info:{
-      manufacturer:'innodisk',
-      productionDate:'2020/5/8',
-      productionCode:'ff04852xs'
-    }
-  }]
-  const afterState=[{
-    id:0,
-    deviceName:'test',
-    power:true,
-    info:{
-      manufacturer:'hihichange',
-      productionDate:'2020/5/7',
-      productionCode:'ff04852xs123'
-    }
-  }]
-  expect(userControl(beforeState,{
-      type:'SET_DEVICE_INFO_PROPS',
-      id:0,
-      info:{
-        manufacturer:'hihichange',
-        productionDate:'2020/5/7',
-        productionCode:'ff04852xs123'
-      }
-  })).toEqual(afterState)
-})
-test('change_device_power',()=>{
-  const beforeState=[{
-    id:0,
-    deviceName:'test',
-    power:false,
-  },{
-    id:1,
-    deviceName:'test',
-    power:false,
-  }]
-  const afterState=[{
-    id:0,
-    deviceName:'test',
-    power:false,
-  },{
-    id:1,
-    deviceName:'test',
-    power:true,
-  }]
-  expect(userControl(beforeState,{
-    type:'CHANGE_POWER',
-    id:1,
-  })).toEqual(afterState)
-})
-test('command',()=>{
-  const beforeState=[{
-    id:0,
-    deviceName:'test',
-    power:true,
-    info:{
-      manufacturer:'innodisk',
-      productionDate:'2020/5/8',
-      productionCode:'ff04852xs'
-    }
-  }]
-  const afterState=[{
-    id:0,
-    deviceName:'test',
-    power:true,
-    command:'test',
-    info:{
-      manufacturer:'innodisk',
-      productionDate:'2020/5/8',
-      productionCode:'ff04852xs'
-    }
-  }]
-  expect(userControl(beforeState,{
-    type:'COMMAND',
-    id:0,
-    command:'test'
-  })).toEqual(afterState)
+  })).toEqual(after);
 })

@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+// import {reducer} from './reducer';
 import {device} from './device';
-import {userControl} from './userControl';
-export default combineReducers({ device, userControl });
+// export default combineReducers({reducer});
+export default combineReducers({device});

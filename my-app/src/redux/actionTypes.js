@@ -1,6 +1,3 @@
-export const ADD_DEVICE = 'ADD_DEVICE'
-export const DELETE_DEVICE = 'DELETE_DEVICE'
-export const SET_DEVICE_INFO = 'SET_DEVICE_INFO'
-export const SET_DEVICE_INFO_PROPS = 'SET_DEVICE_INFO_PROPS'
-export const CHANGE_POWER = 'CHANGE_POWER'
-export const COMMAMD = 'COMMAND'
+// export const TYPE_NAME = 'TYPE_NAME'
+export const CHANGE_POWER = 'CHANGE_POWER';
+export const ADD_DEVICE = 'ADD_DEVICE';

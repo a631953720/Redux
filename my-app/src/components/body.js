@@ -1,44 +1,48 @@
 import React from 'react';
-import { ReactReduxContext, connect } from "react-redux";
-import {addDevice} from '../redux/actions';
-import {DeviceList} from './deviceList';
+import { connect } from "react-redux";
+import {changePower,addDevice} from '../redux/actions';
+import { device } from '../redux/reducers/device';
 
 let id=0;
-const SubBody =({
-    deviceList,
-    addDevice
-})=>{
-    let input=''
+const Test=(deviceList)=>{
+    
+    let list = deviceList.map(device=>{
+        let id=0;
+        return `id:${device.id} power:${device.power ?'on':'off'}`
+    })
+    console.log(list);
     return(
         <div>
-            <input
-                type='text'
-                placeholder="裝置名稱"
-                ref={node => { input = node; }}
-            />
-            <button onClick={() => { addDevice(id++, input.value,true); input.value = '';}}>+++</button>
-            {id}
-            <DeviceList deviceList={deviceList}/>
+            {list.map((item,idx)=>(
+                <p key={idx}>{item}</p>
+            ))}
         </div>
     )
 }
-// 等同addDevice
-// const mapDispatchToProps = dispatch => ({
-//     addDevice: (id, name, power) => {
-//         dispatch({
-//             type: 'ADD_DEVICE',
-//             id: id,
-//             deviceName: name,
-//             power: power
-//         })
-//     }
-// })
-const mapStateToProps=state =>({
+class SubBody extends React.Component {
+    handleAdd = () =>{
+        console.log(this.props.addDevice(id++,true))
+    }
+    handleChange = () =>{
+        console.log(this.props.changePower(0))
+    }
+    render(){
+        console.log(this.props.deviceList);
+        const deviceList = this.props.deviceList;
+        return(
+            <div>
+                <button onClick={this.handleAdd}>add</button>
+                <button onClick={this.handleChange}>change</button>
+                {Test(deviceList)}
+            </div>
+        )
+    }
+}
+const mapStateToProps = state =>({
     deviceList:state.device
-})
+});
 export const Body = connect(
     mapStateToProps,
-    // {addDevice}//等同mapDispatchToProps
-    {addDevice}
-)(SubBody)
+    {changePower,addDevice}
+)(SubBody);
 
